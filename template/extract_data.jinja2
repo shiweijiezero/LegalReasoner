@@ -1,0 +1,37 @@
+Please extract the following key information from the given court judgment and return it in JSON format:
+
+{
+    "plaintiff": "Name of the applicant/plaintiff",
+    "defendant": "Name of the defendant",
+    "plaintiff_claim": "claims made by the plaintiff",
+    "lawsuit_type": "e.g., judicial review application",
+    "facts": [
+        "List of detailed factual background information",
+    ],
+    "related_laws": [
+        "List of relevant laws or legal provisions (e.g., Part VIIC of the Immigration Ordinance, Cap 115 (“Torture Risk”))",
+    ],
+    "relevant_cases": [
+        "List of relevant case law or precedents cited (e.g., Re Lakhwinder Singh [2018] HKCA 246)",
+    ],
+    "issues": [
+        "List of main issues in dispute (if any)"
+    ],
+    "court_reasoning": [
+        "List of reasoning process or legal principles applied by the court"
+    ],
+    "judgment decision": [
+        "List of court's final decision and any additional orders"
+    ]
+}
+
+
+Requirements:
+1. Clearly distinguish between factual statements and court opinions.
+2. Organize facts and procedural content chronologically.
+3. Return empty string "" for fields where information is not explicitly mentioned in the original text.
+4. Exhibit detailed information for facts and court reasoning, each required lengthy description.
+5. Maintain JSON format integrity and standards.
+
+Content:
+{{ content }}

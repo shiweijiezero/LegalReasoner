@@ -1,0 +1,46 @@
+Please review the court's reasoning section and extract any additional factual information to supplement the existing facts. Return the results in the following format:
+
+{
+    "plaintiff": "Name of the applicant/plaintiff",
+    "defendant": "Name of the defendant",
+    "plaintiff_claim": "claims made by the plaintiff",
+    "lawsuit_type": "e.g., judicial review application",
+    "more_facts": [
+        "List of detailed factual background information"
+    ],
+    "related_laws": [
+        "List of relevant laws or legal provisions"
+    ],
+    "relevant_cases": [
+        "List of relevant case law or precedents cited"
+    ],
+    "issues": [
+        "List of main issues in dispute (if any)"
+    ],
+    "court_reasoning": [
+        "List of reasoning process or legal principles applied by the court"
+    ],
+    "judgment decision": [
+        "List of court's final decision and any additional orders"
+    ],
+    "support&reject": "Whether the court supports or rejects the plaintiff's claim (support/reject)"
+}
+
+Requirements for extracting additional facts:
+1. Carefully review the court_reasoning section to identify:
+- Facts mentioned by the judge when explaining their decision
+- Facts referenced in the analysis of evidence
+- Facts cited when applying legal principles
+- Facts used to support the final judgment
+
+2. Only extract objective factual statements, not legal conclusions/inference or opinions
+3. Add these facts to more_facts section if they're not already included in the original facts
+4. Maintain chronological order when possible
+5. Do not modify any other sections from the previous extraction
+
+Note: Focus solely on extracting additional factual information from the court's reasoning. Do not include interpretations, opinions, or legal analysis.
+
+Given the extracted judgment data:
+{{ content }}
+
+Return the refined data in the specified format.

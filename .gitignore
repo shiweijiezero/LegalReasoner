@@ -1,0 +1,11 @@
+/data/
+/eval_res/
+/examples/
+/filter_processed_data/
+/law_data/
+/OpenRLHF/
+/prm_data/
+/processed_data/
+/refine_processed_data/
+/sft_data/
+/visual/
