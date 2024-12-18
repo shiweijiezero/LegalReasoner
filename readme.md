@@ -44,7 +44,7 @@ Supported models include:
 
 For specific GPU allocation, use:
 ```bash
-python eval.py --gpu --gpu_count_num 4 --model_name MODEL_PATH
+CUDA_VISIBLE_DEVICES=4,5,6,7 python eval.py --gpu --gpu_count_num 4 --model_name MODEL_PATH
 ```
 
 ## Model Fine-tuning
