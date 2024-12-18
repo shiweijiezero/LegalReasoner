@@ -14,6 +14,8 @@
       <sourceFolder url="file://$MODULE_DIR$/refine_processed_data" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/sft_data" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/visual" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/stationary_locate/law_data/logs" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/stationary_locate/law_data/spider" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

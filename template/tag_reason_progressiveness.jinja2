@@ -1,0 +1,20 @@
+Please evaluate the generated reasoning based on the following case elements:
+
+Plaintiff's Claim: {{ plaintiff_claim }}
+Key Facts: {{ facts }}
+Key Disputes: {{ issues }}
+Referenced Court Reasoning: {{ referenced_court_reasoning }}
+
+Generated Reasoning to Evaluate:
+<reasoning_start>
+{{ model_reasoning }}
+<reasoning_end>
+Task:
+1. Compare each step of the generated reasoning against the referenced court reasoning
+2. Each signal <PRM> in the generated reasoning represents one reasoning step
+3. Rate each step for signal <PRM> with "+" (beneficial) or "-" (harmful)
+4. Provide your evaluation in a Python list format
+5. Please Consider the Progressiveness of Inference
+
+Example Output:
+["-", "-", "+", ...]

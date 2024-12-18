@@ -1,0 +1,23 @@
+{
+    "question:": "How can I apply for a work visa?",
+    "relevant_path": [],
+    "other_relevant_path": [
+        {
+            "law_number": "CAP 115",
+            "cap title": "Immigration Ordinance"
+        },
+        {
+            "law_number": "CAP 331",
+            "cap title": "Immigration Service Ordinance"
+        },
+        {
+            "law_number": "CAP 539",
+            "cap title": "Hong Kong Special Administrative Region Passports Ordinance"
+        },
+        {
+            "law_number": "CAP 78",
+            "cap title": "Contracts for Employment Outside Hong Kong Ordinance"
+        }
+    ],
+    "backend_model": "/home/hansirui/.cache/huggingface/hub/models--meta-llama--Llama-3.1-70B-Instruct/snapshots/945c8663693130f8be2ee66210e062158b2a9693/"
+}

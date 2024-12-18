@@ -48,8 +48,8 @@ if __name__ == "__main__":
     # model, tokenizer
     # 初始化模型
     # model_name = "Qwen/Qwen2.5-7B-Instruct"
-    # model_name = "Qwen/Qwen2.5-14B-Instruct"
-    model_name = "/home/hansirui/.cache/huggingface/hub/models--meta-llama--Llama-3.1-70B-Instruct/snapshots/945c8663693130f8be2ee66210e062158b2a9693/"
+    model_name = "Qwen/Qwen2.5-14B-Instruct"
+    # model_name = "/home/hansirui/.cache/huggingface/hub/models--meta-llama--Llama-3.1-70B-Instruct/snapshots/945c8663693130f8be2ee66210e062158b2a9693/"
     model = LLM(
         model=model_name,  # 模型路径
         trust_remote_code=True,  # Qwen 需要此参数

@@ -1,0 +1,10 @@
+For the user's input, please select highly relevant to the case.
+
+User input: {{ input_text }}
+
+Candidate legal provisions:
+{% for cap in candidate_caps %}
+    - {{ cap }}
+{% endfor %}
+
+Please select highly relevant provisions to the user's input, return their cap number and explanation.

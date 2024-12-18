@@ -9,3 +9,7 @@
 /refine_processed_data/
 /sft_data/
 /visual/
+/stationary_locate/law_data/logs/
+/stationary_locate/law_data/spider/
+/stationary_locate/law_data/structured_laws.json
+/stationary_locate/law_data/hkel_en.jsonl

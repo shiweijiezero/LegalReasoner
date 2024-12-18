@@ -1,0 +1,15 @@
+For the user's input, please carefully judge whether the following legal provisions are directly applicable or highly relevant to the case.
+
+User input: {{ input_text }}
+
+Candidate legal provisions:
+{% for cap in candidate_caps %}
+    - {{ cap }}
+{% endfor %}
+
+Are the above legal provisions directly applicable or highly relevant to the user's input?
+
+Please respond with a list, where each item is either 'directly_applicable', 'highly_relevant', or 'not_relevant' for the corresponding legal provision. Format example: ['directly_applicable', 'highly_relevant', 'not_relevant', ...]
+Only select 'directly_applicable' if the legal provision can be directly applied to resolve the case described in the user input. Select 'highly_relevant' if the legal provision is highly pertinent but may require some interpretation or additional analysis to apply. Select 'not_relevant' if the legal provision does not have a strong connection to the user's input.
+
+First thoroughly analyze each candidate legal provision, then provide your consolidated answer.
