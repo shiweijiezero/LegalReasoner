@@ -25,7 +25,7 @@ python refine_data.py
 python filter_data.py
 ```
 
-The processed LegalHK dataset is available at .
+The processed LegalHK dataset is available at https://huggingface.co/datasets/weijiezz/LegalHK.
 
 ## Model Evaluation
 

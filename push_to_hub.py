@@ -1,9 +1,22 @@
 import argparse
-
 from datasets import Dataset
 import json
 import os
 from tqdm import tqdm
+
+def safe_join(items):
+    """
+    Safely join items, handling None values and ensuring all items are strings.
+
+    Args:
+        items: List or None
+    Returns:
+        str: Joined string or empty string if input is None/empty
+    """
+    if not items:  # Handles None or empty list
+        return ""
+    # Convert all items to strings and filter out None values
+    return "\n".join(str(item) for item in items if item is not None)
 
 def upload_to_existing_dataset(all_data, dataset_path="weijiezz/LegalHK"):
     """
@@ -29,22 +42,28 @@ def upload_to_existing_dataset(all_data, dataset_path="weijiezz/LegalHK"):
     }
 
     # Process each data point
-    for item in tqdm(all_data, desc="Processing data"):
-        # Handle each field, converting lists to strings where needed
-        processed_data["plaintiff"].append(item.get("plaintiff", ""))
-        processed_data["defendant"].append(item.get("defendant", ""))
-        processed_data["plaintiff_claim"].append(item.get("plaintiff_claim", ""))
-        processed_data["lawsuit_type"].append(item.get("lawsuit_type", ""))
+    for idx, item in enumerate(tqdm(all_data, desc="Processing data")):
+        try:
+            # Handle simple string fields with default empty string
+            processed_data["plaintiff"].append(str(item.get("plaintiff", "") or ""))
+            processed_data["defendant"].append(str(item.get("defendant", "") or ""))
+            processed_data["plaintiff_claim"].append(str(item.get("plaintiff_claim", "") or ""))
+            processed_data["lawsuit_type"].append(str(item.get("lawsuit_type", "") or ""))
+            processed_data["support&reject"].append(str(item.get("support&reject", "") or ""))
 
-        # Convert lists to strings with newline separation
-        processed_data["more_facts"].append("\n".join(item.get("more_facts", [])))
-        processed_data["related_laws"].append("\n".join(item.get("related_laws", [])))
-        processed_data["relevant_cases"].append("\n".join(item.get("relevant_cases", [])))
-        processed_data["issues"].append("\n".join(item.get("issues", [])))
-        processed_data["court_reasoning"].append("\n".join(item.get("court_reasoning", [])))
-        processed_data["judgment_decision"].append("\n".join(item.get("judgment_decision", [])))
+            # Handle list fields
+            processed_data["more_facts"].append(safe_join(item.get("more_facts", [])))
+            processed_data["related_laws"].append(safe_join(item.get("related_laws", [])))
+            processed_data["relevant_cases"].append(safe_join(item.get("relevant_cases", [])))
+            processed_data["issues"].append(safe_join(item.get("issues", [])))
+            processed_data["court_reasoning"].append(safe_join(item.get("court_reasoning", [])))
+            processed_data["judgment_decision"].append(safe_join(item.get("judgment_decision", [])))
 
-        processed_data["support&reject"].append(item.get("support&reject", ""))
+        except Exception as e:
+            print(f"Error processing record {idx}:")
+            print(f"Error message: {str(e)}")
+            print(f"Problematic record: {item}")
+            continue
 
     # Create Dataset object
     dataset = Dataset.from_dict(processed_data)
@@ -52,7 +71,7 @@ def upload_to_existing_dataset(all_data, dataset_path="weijiezz/LegalHK"):
     # Push to hub
     dataset.push_to_hub(dataset_path)
 
-    print(f"Successfully uploaded data to {dataset_path}")
+    print(f"\nSuccessfully uploaded data to {dataset_path}")
     print(f"Dataset statistics:")
     print(f"Number of records: {len(all_data)}")
     print("\nSample record structure:")
@@ -73,9 +92,13 @@ def main(args):
             for file_name in tqdm(os.listdir(input_dir), desc="Loading files"):
                 if file_name.endswith('.json'):
                     input_path = os.path.join(input_dir, file_name)
-                    with open(input_path, 'r', encoding='utf-8') as f:
-                        content = json.load(f)
-                        all_data.append(content)
+                    try:
+                        with open(input_path, 'r', encoding='utf-8') as f:
+                            content = json.load(f)
+                            all_data.append(content)
+                    except Exception as e:
+                        print(f"Error loading file {file_name}: {str(e)}")
+                        continue
 
     print(f"Loaded {len(all_data)} records")
 
@@ -93,7 +116,10 @@ def main(args):
             print(f"Warning: Record {idx} is missing fields: {missing_fields}")
 
     # Upload to the existing dataset
-    upload_to_existing_dataset(all_data)
+    if all_data:
+        upload_to_existing_dataset(all_data)
+    else:
+        print("No data to upload!")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
