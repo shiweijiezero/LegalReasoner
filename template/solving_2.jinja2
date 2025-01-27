@@ -1,0 +1,49 @@
+{% set template_compensation_scope %}
+Please analyze the following compensation determination for potential errors:
+
+Case Details:
+Claim Amount: {{ claim_amount }}
+Damages Claimed: {{ damages_claimed }}
+Legal Basis: {{ legal_basis }}
+Precedent Cases: {{ precedent_cases }}
+
+Current Compensation Analysis:
+{{ compensation_analysis }}
+
+Please evaluate:
+1. Component Analysis:
+- Itemize all compensation components
+- Verify calculation methods
+- Check compliance with legal limits
+
+2. Evidence Validation:
+- Confirm evidence for each component
+- Verify quantum calculations
+- Check supporting documentation
+
+3. Comparative Analysis:
+- Compare with similar cases
+- Check for consistency with guidelines
+- Identify any outliers
+
+Output Format:
+{
+"has_errors": true/false,
+"compensation_review": {
+"components": [
+{
+"item": "Component name",
+"claimed": "Claimed amount",
+"calculated": "Calculated amount",
+"valid": true/false,
+"issues": ["List of issues if any"],
+"correction": "Suggested correction"
+}
+],
+"total_adjustment": "Total adjustment needed",
+"justification": ["Reasons for adjustments"],
+"references": ["Relevant cases/guidelines supporting correction"]
+}
+}
+{% endset %}
+

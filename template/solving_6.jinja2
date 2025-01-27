@@ -1,0 +1,40 @@
+{% set template_key_disputes %}
+Please analyze the following case for potentially unaddressed disputes:
+
+Case Summary:
+{{ case_summary }}
+
+Current Disputes Addressed:
+{{ addressed_disputes }}
+
+All Claims:
+{{ all_claims }}
+
+Please evaluate:
+1. Dispute Identification:
+- Extract all explicit claims
+- Identify implicit contentions
+- List subsidiary issues
+
+2. Coverage Analysis:
+- Check addressing of each dispute
+- Assess depth of analysis
+- Identify overlooked aspects
+
+3. Resolution Review:
+- Verify complete resolution
+- Check reasoning adequacy
+- Assess decision clarity
+
+Output Format:
+{
+"has_unaddressed_disputes": true/false,
+"dispute_analysis": {
+"addressed": ["List of addressed disputes"],
+"unaddressed": ["List of unaddressed disputes"],
+"partial": ["Partially addressed disputes"],
+"recommendations": ["Suggested actions for each unaddressed dispute"]
+}
+}
+{% endset %}
+

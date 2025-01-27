@@ -1,0 +1,49 @@
+{% set template_evidence_chain %}
+Please analyze the following evidence chain for integrity issues:
+
+Evidence Presented:
+{{ evidence_list }}
+
+Current Analysis:
+{{ evidence_analysis }}
+
+Evidence Connections:
+{{ evidence_connections }}
+
+Please evaluate:
+1. Individual Evidence:
+- Check reliability of each piece
+- Verify authenticity
+- Assess admissibility
+
+2. Chain Analysis:
+- Trace logical connections
+- Identify gaps
+- Verify chronological consistency
+
+3. Supporting Framework:
+- Check documentation completeness
+- Verify procedural compliance
+- Assess evidence weight
+
+Output Format:
+{
+"has_integrity_issues": true/false,
+"evidence_review": {
+"individual_items": [
+{
+"evidence": "Evidence description",
+"reliability": "High/Medium/Low",
+"issues": ["List of issues"],
+"corrections": ["Suggested corrections"]
+}
+],
+"chain_analysis": {
+"gaps": ["Identified gaps"],
+"inconsistencies": ["Found inconsistencies"],
+"corrections": ["Suggested corrections"]
+}
+}
+}
+{% endset %}
+

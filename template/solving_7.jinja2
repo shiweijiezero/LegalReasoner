@@ -1,0 +1,46 @@
+{% set template_sentencing_bias %}
+Please analyze the following sentencing decision for potential bias:
+
+Case Details:
+{{ case_details }}
+
+Sentence Given:
+{{ sentence }}
+
+Similar Cases:
+{{ similar_cases }}
+
+Please evaluate:
+1. Comparative Analysis:
+- Compare with similar cases
+- Check sentencing guidelines
+- Assess consistency
+
+2. Factor Review:
+- Analyze aggravating factors
+- Review mitigating factors
+- Check factor weighting
+
+3. Bias Detection:
+- Check for demographic influence
+- Verify objective application
+- Review discretionary elements
+
+Output Format:
+{
+"has_bias": true/false,
+"bias_analysis": {
+"comparative": {
+"deviation": "Degree of deviation from norm",
+"similar_cases": ["Relevant comparable cases"],
+"discrepancies": ["Identified discrepancies"]
+},
+"factors": {
+"properly_considered": ["Correctly weighted factors"],
+"improperly_weighted": ["Incorrectly weighted factors"],
+"overlooked": ["Overlooked factors"]
+},
+"corrections": ["Suggested adjustments with justification"]
+}
+}
+{% endset %}

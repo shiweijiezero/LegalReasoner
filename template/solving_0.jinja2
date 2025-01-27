@@ -1,0 +1,40 @@
+{% set template_legal_principle %}
+Please analyze the following legal reasoning step for potential legal principle misapplication:
+
+Case Context:
+Plaintiff's Claim: {{ plaintiff_claim }}
+Key Facts: {{ key_facts }}
+Relevant Laws: {{ relevant_laws }}
+Relevant Cases: {{ relevant_cases }}
+
+Current Reasoning Step:
+{{ current_reasoning }}
+
+Please evaluate the following aspects:
+1. Legal Elements Analysis:
+- Identify all required legal elements from cited provisions
+- Check if each element is properly established
+- Validate causal relationships between elements
+
+2. Legal Interpretation:
+- Compare interpretation against precedent cases
+- Verify alignment with statutory intent
+- Check for misapplication of legal tests
+
+3. Evidence Application:
+- Assess if evidence supports each legal element
+- Verify logical connections between facts and legal conclusions
+- Identify any gaps in legal reasoning
+
+Output Format:
+{
+"has_misapplication": true/false,
+"identified_issues": ["List of specific legal principle misapplications"],
+"correction_suggestions": ["List of suggested corrections with legal basis"],
+"references": {
+"provisions": ["Relevant provisions supporting correction"],
+"cases": ["Precedent cases supporting correction"]
+}
+}
+{% endset %}
+

@@ -1,0 +1,46 @@
+{% set template_joint_liability %}
+Please analyze the following joint liability determination:
+
+Parties Involved:
+{{ parties }}
+
+Liability Distribution:
+{{ liability_distribution }}
+
+Supporting Evidence:
+{{ supporting_evidence }}
+
+Please evaluate:
+1. Party Analysis:
+- Review each party's role
+- Assess contribution levels
+- Verify causal connections
+
+2. Distribution Review:
+- Check allocation basis
+- Verify proportionality
+- Assess fairness
+
+3. Legal Basis:
+- Check statutory requirements
+- Review precedent applications
+- Verify procedural compliance
+
+Output Format:
+{
+"has_liability_issues": true/false,
+"liability_analysis": {
+"parties": [
+{
+"party": "Party name",
+"role": "Role description",
+"current_liability": "Current %",
+"suggested_liability": "Suggested %",
+"justification": ["Reasons for adjustment"]
+}
+],
+"legal_basis": ["Relevant legal principles"],
+"corrections": ["Suggested corrections"]
+}
+}
+{% endset %}

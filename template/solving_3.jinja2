@@ -1,0 +1,47 @@
+{% set template_unenforceable %}
+Please analyze the following judgment for enforceability issues:
+
+Judgment Details:
+{{ judgment_details }}
+
+Orders Made:
+{{ orders }}
+
+Jurisdiction Information:
+{{ jurisdiction_info }}
+
+Please evaluate:
+1. Jurisdictional Analysis:
+- Verify court's jurisdiction
+- Check territorial applicability
+- Assess enforcement mechanisms
+
+2. Practical Feasibility:
+- Evaluate implementation requirements
+- Identify potential obstacles
+- Check resource availability
+
+3. Legal Framework:
+- Review enforcement regulations
+- Check compliance with procedures
+- Verify time limitations
+
+Output Format:
+{
+"has_enforceability_issues": true/false,
+"issues": [
+{
+"type": "jurisdictional/practical/legal",
+"description": "Description of the issue",
+"impact": "Impact on enforcement",
+"solution": "Proposed solution"
+}
+],
+"enforcement_pathway": {
+"steps": ["Required enforcement steps"],
+"requirements": ["Legal/practical requirements"],
+"alternatives": ["Alternative enforcement methods"]
+}
+}
+{% endset %}
+

@@ -1,0 +1,46 @@
+{% set template_fact_discrepancy %}
+Please analyze the following legal reasoning step for potential discrepancies between facts and reasoning:
+
+Case Facts:
+{{ case_facts }}
+
+Current Reasoning Step:
+{{ reasoning_step }}
+
+Evidence Referenced:
+{{ referenced_evidence }}
+
+Please evaluate:
+1. Fact Coverage:
+- List all facts cited in reasoning
+- Compare against available case facts
+- Identify any missing crucial facts
+
+2. Factual Accuracy:
+- Check if facts are accurately represented
+- Verify chronological consistency
+- Identify any misinterpretations
+
+3. Evidence Support:
+- Validate if conclusions are supported by facts
+- Check for unsupported assumptions
+- Identify speculative reasoning
+
+Output Format:
+{
+"has_discrepancy": true/false,
+"identified_discrepancies": [
+{
+"type": "missing_fact/misinterpretation/unsupported_conclusion",
+"description": "Description of the discrepancy",
+"affected_reasoning": "Specific part of reasoning affected",
+"correction": "Suggested correction based on facts"
+}
+],
+"fact_tracking": {
+"used_facts": ["List of facts correctly used"],
+"missing_facts": ["List of relevant facts not considered"],
+"misinterpreted_facts": ["List of facts incorrectly interpreted"]
+}
+}
+{% endset %}
